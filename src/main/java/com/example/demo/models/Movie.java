@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "movies")
 @Getter
@@ -25,6 +27,6 @@ public class Movie {
     @Column(nullable = false)
     private  String genre;
 
-    @Column(nullable = false)
-    private String  posterUrl;
+    @ElementCollection(targetClass = String.class)
+    private Set<String> posterUrl;
 }
